@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --bg-main: #e9eff0;
+    --card-bg: rgba(255, 255, 255, 0.82);
+    --card-border: rgba(13, 92, 107, 0.15);
+    --text-primary: #0a252c;
+    --text-secondary: #42636c;
+    --text-muted: #62828b;
+    --brand-teal: #0d5c6b;
+    --brand-teal-light: #12798c;
+    --emerald-clean: #14806a;
+    --glass-glow: rgba(18, 121, 140, 0.08);
+
+    /* CPCB statutory AQI Colors */
+    --aqi-good: #46a04a;
+    --aqi-satisfactory: #9dc84b;
+    --aqi-moderate: #e8b400;
+    --aqi-poor: #ef8632;
+    --aqi-very-poor: #e04b3d;
+    --aqi-severe: #a4302a;
+  }
+
+  .dark {
+    --bg-main: #060f11;
+    --card-bg: rgba(12, 25, 29, 0.85);
+    --card-border: rgba(18, 121, 140, 0.25);
+    --text-primary: #f0f7f8;
+    --text-secondary: #a3c2c8;
+    --text-muted: #6b8d95;
+    --brand-teal: #12798c;
+    --brand-teal-light: #1ab0cb;
+    --emerald-clean: #1cb898;
+    --glass-glow: rgba(26, 176, 203, 0.12);
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Archivo', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-panel {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card:hover {
+  border-color: var(--brand-teal-light);
+  box-shadow: 0 6px 20px 0 var(--glass-glow);
+}
+
+/* Sensor pulse animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.15);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 9999px;
+  opacity: 0.3;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-teal-light);
+}

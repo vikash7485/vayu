@@ -1,0 +1,10 @@
+{
+  "description": "Access real-time air quality data and predictive insights through a dual-interface platform for citizens and government officials, enhancing civic engagement and climate action.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
